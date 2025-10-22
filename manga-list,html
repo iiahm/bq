@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>قائمة المانجا - mangaQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><h1>قائمة المانجا على mangaQ</h1></header>
+  <main>
+    <ul id="manga-list"></ul>
+  </main>
+  <footer><p>© mangaQ</p></footer>
+
+  <script>
+    const username = "AhmadOmar"; // غيّر هذا إلى اسم المستخدم الخاص بك
+    const repo = "mangaQ";
+    const folder = "manga";
+
+    async function fetchMangaList() {
+      const url = `https://api.github.com/repos/${username}/${repo}/contents/${folder}`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      const list = document.getElementById("manga-list");
+      data.forEach(item => {
+        if (item.type === "dir") {
+          const li = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = `chapter.html?manga=${item.name}&chapter=1`;
+          link.textContent = item.name;
+          li.appendChild(link);
+          list.appendChild(li);
+        }
+      });
+    }
+
+    fetchMangaList();
+  </script>
+</body>
+</html>
