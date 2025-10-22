@@ -2,35 +2,39 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>مكتبة المانجا والمانهوا</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>أورورا مانجا</title>
   <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#0b0e12">
 </head>
 <body>
-<header class="site-header">
-  <img src="assets/logo.png" alt="الشعار" class="logo">
-  <h1>مكتبة المانجا والمانهوا</h1>
-  <div class="actions">
-    <input id="search" type="search" placeholder="ابحث عن سلسلة..." aria-label="بحث">
-    <button id="toggleTheme" title="الوضع الداكن">🌓</button>
-  </div>
+<header class="hdr">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.svg" alt="شعار" class="logo">
+    <span id="siteName">أورورا مانجا</span>
+  </a>
+  <nav class="nav">
+    <input id="search" type="search" placeholder="ابحث عن سلسلة أو وسم..." aria-label="بحث">
+    <a class="btn ghost" href="admin.html">لوحة الإدارة</a>
+    <button id="theme" class="btn">🌓</button>
+  </nav>
 </header>
 
-<main class="container">
+<main class="wrap">
   <section>
     <h2>السلاسل</h2>
-    <div id="seriesGrid" class="grid"></div>
+    <div id="tags" class="tags"></div>
+    <div id="grid" class="grid"></div>
   </section>
 </main>
 
-<footer class="site-footer">
-  <p>© <span id="year"></span> مكتبة المانجا والمانهوا</p>
+<footer class="ftr">
+  <small>© <span id="year"></span> <span id="siteNameFoot">أورورا مانجا</span></small>
 </footer>
 
-<script src="script.js"></script>
+<script src="app.js"></script>
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  window.APP.loadSeries();
+  window.APP.initHome();
 </script>
 </body>
 </html>
