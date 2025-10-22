@@ -7,12 +7,20 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+<body>
 <script>
-  const allowed = "ahmad123"; // غيّرها لكلمة سر خاصة بك
-  const input = prompt("أدخل كلمة المرور:");
-  if (input !== allowed) {
-    document.body.innerHTML = "<h2 style='text-align:center'>🚫 وصول غير مصرح به</h2>";
-    throw new Error("Unauthorized");
+  const allowedPassword = "ahmad123"; // ← غيّرها لكلمة مرورك الخاصة
+  const userInput = prompt("🔐 أدخل كلمة المرور للدخول إلى لوحة الإدارة:");
+
+  if (userInput === null || userInput.trim() !== allowedPassword) {
+    document.body.innerHTML = `
+      <h2 style="text-align:center; margin-top:50px; color:#ff4d4d;">🚫 وصول غير مصرح به</h2>
+      <p style="text-align:center; color:#aaa;">تم رفض الدخول. الرجاء المحاولة بكلمة مرور صحيحة.</p>
+    `;
+    throw new Error("Unauthorized access");
+  }
+</script>
+
   }
 </script>
 <header class="hdr">
