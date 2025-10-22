@@ -1,51 +1,36 @@
-<!doctype html>
-<html lang="ar">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>موسوعة المانجا والمانهوا</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مكتبة المانجا والمانهوا</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1>موسوعة <span class="accent">المانجا</span>، <span class="accent">المانهوا</span> و<span class="accent">المانهوا الصينية</span></h1>
-      <p class="subtitle">استكشف، ابحث، وصنّف أعمالك المفضلة</p>
-
-      <div class="controls">
-        <input id="search" type="search" placeholder="ابحث باسم العمل..." aria-label="بحث">
-        <div class="filters">
-          <button class="filter-btn active" data-type="all">الكل</button>
-          <button class="filter-btn" data-type="manga">مانجا</button>
-          <button class="filter-btn" data-type="manhwa">مانهوا (كوريا)</button>
-          <button class="filter-btn" data-type="manhua">مانهوا (الصين)</button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <section id="grid" class="grid">
-      <!-- بطاقات سيتم إدراجها بواسطة JavaScript -->
-    </section>
-
-    <p id="no-results" class="no-results" hidden>لم يتم العثور على نتائج.</p>
-  </main>
-
-  <!-- نافذة التفاصيل -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="modal-content">
-      <button id="modal-close" class="modal-close" aria-label="إغلاق">×</button>
-      <div id="modal-body"></div>
-    </div>
+<header class="site-header">
+  <img src="assets/logo.png" alt="الشعار" class="logo">
+  <h1>مكتبة المانجا والمانهوا</h1>
+  <div class="actions">
+    <input id="search" type="search" placeholder="ابحث عن سلسلة..." aria-label="بحث">
+    <button id="toggleTheme" title="الوضع الداكن">🌓</button>
   </div>
+</header>
 
-  <footer class="site-footer">
-    <div class="container">
-      <small>موقع تجريبي مستضاف على GitHub Pages — يمكنك تعديل المحتوى كما تشاء.</small>
-    </div>
-  </footer>
+<main class="container">
+  <section>
+    <h2>السلاسل</h2>
+    <div id="seriesGrid" class="grid"></div>
+  </section>
+</main>
 
-  <script src="script.js"></script>
+<footer class="site-footer">
+  <p>© <span id="year"></span> مكتبة المانجا والمانهوا</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  window.APP.loadSeries();
+</script>
 </body>
 </html>
