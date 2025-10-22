@@ -1,136 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>لوحة الإدارة</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<<body>
-<script>
-  const allowedPassword = "ahmad123"; // ← غيّرها لكلمة مرورك الخاصة
-  const userInput = prompt("🔐 أدخل كلمة المرور للدخول إلى لوحة الإدارة:");
-
-  if (userInput === null || userInput.trim() !== allowedPassword) {
-    document.body.innerHTML = `
-      <h2 style="text-align:center; margin-top:50px; color:#ff4d4d;">🚫 وصول غير مصرح به</h2>
-      <p style="text-align:center; color:#aaa;">تم رفض الدخول. الرجاء المحاولة بكلمة مرور صحيحة.</p>
-    `;
-    throw new Error("Unauthorized access");
-  }
-</script>
-<
-  }
-</script>
-<header class="hdr">
-  <a class="brand" href="index.html">الرئيسية</a>
-  <h1>لوحة الإدارة</h1>
-</header>
-
-<main class="wrap admin">
-  <section class="card">
-    <h3>الاتصال بـ GitHub</h3>
-    <div class="grid2">
-      <label>رمز الوصول (PAT)
-        <input id="ghToken" type="password" placeholder="ghp_xxx أو fine-grained">
-      </label>
-      <label>المالك/المستودع
-        <input id="ghRepo" type="text" placeholder="iiahm/bq" value="iiahm/bq">
-      </label>
-      <label>الفرع
-        <input id="ghBranch" type="text" placeholder="main" value="main">
-      </label>
-    </div>
-    <div class="row">
-      <button id="connect" class="btn">اتصال</button>
-      <button id="disconnect" class="btn ghost">قطع</button>
-    </div>
-    <p class="muted">يمكنك ترك الحقول فارغة والعمل بنمط التصدير المحلي.</p>
-  </section>
-
-  <section class="card">
-    <h3>إعدادات الموقع</h3>
-    <div class="grid2">
-      <label>اسم الموقع
-        <input id="siteName" type="text" placeholder="أورورا مانجا">
-      </label>
-      <label>وصف قصير
-        <input id="siteDesc" type="text" placeholder="مكتبة حديثة للمانجا والمانهوا">
-      </label>
-      <label>رابط الشعار (اختياري)
-        <input id="siteLogo" type="text" placeholder="assets/logo.svg">
-      </label>
-    </div>
-    <div class="row">
-      <button id="saveConfig" class="btn">حفظ config.json</button>
-      <button id="downloadConfig" class="btn ghost">تنزيل config.json</button>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>إضافة سلسلة جديدة</h3>
-    <div class="grid2">
-      <label>المعرف (slug)
-        <input id="sSlug" type="text" placeholder="solo-leveling">
-      </label>
-      <label>العنوان
-        <input id="sTitle" type="text" placeholder="Solo Leveling">
-      </label>
-      <label>النوع
-        <select id="sType">
-          <option>مانجا</option>
-          <option>مانهوا</option>
-        </select>
-      </label>
-      <label>الحالة
-        <select id="sStatus">
-          <option>مستمر</option>
-          <option>مكتمل</option>
-        </select>
-      </label>
-      <label>المؤلف
-        <input id="sAuthor" type="text" placeholder="Chugong">
-      </label>
-      <label>صورة الغلاف
-        <input id="sCover" type="text" placeholder="images/solo-leveling/cover.jpg">
-      </label>
-      <label>وسوم (مفصولة بفواصل)
-        <input id="sTags" type="text" placeholder="أكشن, فانتازيا">
-      </label>
-      <label>وصف
-        <textarea id="sDesc" rows="3" placeholder="نبذة عن السلسلة"></textarea>
-      </label>
-    </div>
-    <div class="row">
-      <button id="addSeries" class="btn">إضافة إلى series.json</button>
-      <button id="downloadSeries" class="btn ghost">تنزيل series.json</button>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>إدارة الفصول</h3>
-    <div class="grid2">
-      <label>معرف السلسلة (slug)
-        <input id="cSlug" type="text" placeholder="solo-leveling">
-      </label>
-      <label>رقم الفصل
-        <input id="cNumber" type="number" min="1" placeholder="1">
-      </label>
-      <label>عنوان الفصل
-        <input id="cTitle" type="text" placeholder="البداية">
-      </label>
-      <label>روابط الصور (كل سطر صورة)
-        <textarea id="cImages" rows="5" placeholder="images/solo-leveling/ch-1/001.jpg"></textarea>
-      </label>
-    </div>
-    <div class="row">
-      <button id="addChapter" class="btn">إضافة/تحديث ملف الفصول</button>
-      <button id="downloadChapter" class="btn ghost">تنزيل ملف السلسلة JSON</button>
-    </div>
-    <p class="muted">ارفع الصور للمجلد المناسب داخل images/ ثم ضع مساراتها هنا.</p>
-  </section>
-</main>
-
-<script src="admin.js"></script>
-</body>
-</html>
