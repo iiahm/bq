@@ -1,0 +1,14 @@
+{
+  "manga": [
+    {
+      "title": "مانجا البداية",
+      "description": "قصة مثيرة عن مغامرات لا تنتهي.",
+      "chapters": [
+        {
+          "number": 1,
+          "images": ["chapter1-1.jpg", "chapter1-2.jpg"]
+        }
+      ]
+    }
+  ]
+}
