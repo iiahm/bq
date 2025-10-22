@@ -1,90 +1,113 @@
 class CustomFooter extends HTMLElement {
-    connectedCallback() {
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.innerHTML = `
-            <style>
-                footer {
-                    background: #1A202C;
-                    color: white;
-                    padding: 2rem;
-                    text-align: center;
-                    margin-top: auto;
-                }
-                .footer-content {
-                    max-width: 1200px;
-                    margin: 0 auto;
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                    gap: 2rem;
-                    text-align: right;
-                }
-                .footer-section h3 {
-                    font-weight: bold;
-                    margin-bottom: 1rem;
-                    color: #F59E0B;
-                }
-                .footer-section ul {
-                    list-style: none;
-                    padding: 0;
-                }
-                .footer-section li {
-                    margin-bottom: 0.5rem;
-                }
-                .footer-section a {
-                    color: #CBD5E0;
-                    text-decoration: none;
-                    transition: color 0.2s;
-                }
-                .footer-section a:hover {
-                    color: #F59E0B;
-                }
-                .copyright {
-                    margin-top: 2rem;
-                    padding-top: 1rem;
-                    border-top: 1px solid #2D3748;
-                }
-                @media (max-width: 768px) {
-                    .footer-content {
-                        grid-template-columns: 1fr;
-                        text-align: center;
-                    }
-                }
-            </style>
-            <footer>
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h3>روابط سريعة</h3>
-                        <ul>
-                            <li><a href="/">الرئيسية</a></li>
-                            <li><a href="/library.html">المكتبة</a></li>
-                            <li><a href="/categories.html">التصنيفات</a></li>
-                            <li><a href="/about.html">عن الموقع</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h3>التصنيفات</h3>
-                        <ul>
-                            <li><a href="/category/action">أكشن</a></li>
-                            <li><a href="/category/adventure">مغامرات</a></li>
-                            <li><a href="/category/comedy">كوميدي</a></li>
-                            <li><a href="/category/drama">دراما</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h3>تواصل معنا</h3>
-                        <ul>
-                            <li><a href="mailto:contact@mangaq.com">البريد الإلكتروني</a></li>
-                            <li><a href="#">تويتر</a></li>
-                            <li><a href="#">فيسبوك</a></li>
-                            <li><a href="#">إنستغرام</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="copyright">
-                    <p>&copy; 2023 MangaQ. جميع الحقوق محفوظة.</p>
-                </div>
-            </footer>
-        `;
-    }
+  connectedCallback() {
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.innerHTML = `
+      <style>
+        footer {
+          background: #1F2937;
+          color: white;
+          padding: 3rem 2rem;
+          text-align: center;
+          margin-top: 2rem;
+        }
+        .footer-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 2rem;
+          text-align: right;
+        }
+        .footer-section h3 {
+          font-size: 1.25rem;
+          margin-bottom: 1rem;
+          color: #3B82F6;
+          border-bottom: 2px solid #3B82F6;
+          padding-bottom: 0.5rem;
+          display: inline-block;
+        }
+        .footer-section ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        .footer-section li {
+          margin-bottom: 0.5rem;
+        }
+        .footer-section a {
+          color: #E5E7EB;
+          text-decoration: none;
+          transition: color 0.3s;
+        }
+        .footer-section a:hover {
+          color: #3B82F6;
+        }
+        .copyright {
+          margin-top: 2rem;
+          padding-top: 1rem;
+          border-top: 1px solid #374151;
+          color: #9CA3AF;
+        }
+        .social-icons {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          margin-top: 1rem;
+        }
+        .social-icons a {
+          color: white;
+          background: #4B5563;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s;
+        }
+        .social-icons a:hover {
+          background: #3B82F6;
+          transform: translateY(-3px);
+        }
+        @media (max-width: 768px) {
+          .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+          }
+        }
+      </style>
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>عن الموقع</h3>
+            <p>MangaQ منصة عربية متخصصة في عرض المانجا والمانهوا المترجمة بجودة عالية.</p>
+          </div>
+          <div class="footer-section">
+            <h3>روابط سريعة</h3>
+            <ul>
+              <li><a href="/">الرئيسية</a></li>
+              <li><a href="#popular">الأكثر شعبية</a></li>
+              <li><a href="#categories">التصنيفات</a></li>
+              <li><a href="/admin.html">لوحة التحكم</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>تواصل معنا</h3>
+            <p>info@mangaq.com</p>
+            <p>+966 123 456 789</p>
+            <div class="social-icons">
+              <a href="#"><i data-feather="facebook"></i></a>
+              <a href="#"><i data-feather="twitter"></i></a>
+              <a href="#"><i data-feather="instagram"></i></a>
+              <a href="#"><i data-feather="youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>جميع الحقوق محفوظة &copy; 2024 MangaQ</p>
+        </div>
+      </footer>
+    `;
+  }
 }
 customElements.define('custom-footer', CustomFooter);
